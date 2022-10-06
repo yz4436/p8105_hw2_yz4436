@@ -175,3 +175,7 @@ snp_pols_merge = left_join(pols_month_df, snp_df, by = c("year", "month"))
 snp_pols_unemployment = left_join(snp_pols_merge, unemployment_df, by = c("year", "month"))
 ```
 
+* For pols-month.csv dataset, it contained `r ncol(pols_month_df)` variables, which are `r colnames(pols_month_df)`.
+* For snp.csv dataset, it contained `r ncol(snp_df)` variables, which are `r colnames(snp_df)`.
+* For unemployment.csv dataset, it contained `r ncol(unemployment_df)` variables, which are `r colnames(unemployment_df)`.
+* For the resulting dataset snp_pols_unemployment, the dimension of it is `r nrow(snp_pols_unemployment)` * `r ncol(snp_pols_unemployment)`. The range of years is `r range(pull(snp_pols_unemployment, year))`. There are `r ncol(snp_pols_unemployment)` variables, which are `r colnames(snp_pols_unemployment)`.
