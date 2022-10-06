@@ -108,3 +108,7 @@ professor_trashwheel_df =
 
 combine_tidy = bind_rows(mr_trashwheel_df, professor_trashwheel_df)
 ```
+
+* The number of observations in the resulting dataset combine_tidy is `r nrow(combine_tidy)`.
+* The number of variables in the resulting dateset combine_tidy is `r ncol(combine_tidy)`, which are `r colnames(combine_tidy)` and Trash_Wheel_Type is created by myself to indicate the which is Mr. Trash Wheel and which is Professor Trash Wheel.
+* The total weight of trash collected by Professor Trash Wheelis `r sum(pull(professor_trashwheel_df, weight_tons))` and the total number of sports balls collected by Mr. Trash Wheel in 2020 is `r sum(pull(filter(mr_trashwheel_df, year == 2020), sports_balls))`.
