@@ -151,3 +151,18 @@ snp_df =
                    "11" = "November", "12" = "December"))
 ```
 
+Clean and tidy unemployment.csv to let it can be merged with previous documents. I used pivot_longer to switching it from “wide” to “long” format and ensured that key variables have the same name and key variables take the same values.
+```{r}
+unemployment_df = 
+  read_csv(
+    "Data/fivethirtyeight_datasets/unemployment.csv",
+    show_col_types = FALSE) %>%
+  pivot_longer(
+    Jan:Dec,
+    names_to = "month", 
+    values_to = "percentage of unemployment") %>%
+  mutate(month = recode(month, "Jan" = "January", "Feb" = "February", "Mar" = "March",
+                   "Apr" = "April", "May" = "May", "Jun" = "June", "Jul" = "July",
+                   "Aug" = "August", "Sep" = "September", "Oct" = "October",
+                   "Nov" = "November", "Dec" = "December"))
+```
